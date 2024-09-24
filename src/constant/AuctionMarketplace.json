@@ -1,0 +1,294 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_priceFeedAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "itemId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "finalPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "AuctionFinalized",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "emitETHUSDPrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "ethUsdPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "ETHUSDPriceFetched",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_itemId",
+        "type": "uint256"
+      }
+    ],
+    "name": "finalizeAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "itemId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "name": "ItemPosted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "itemId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "bidder",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bidAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "NewHighestBid",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "performData",
+        "type": "bytes"
+      }
+    ],
+    "name": "performUpkeep",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_itemId",
+        "type": "uint256"
+      }
+    ],
+    "name": "placeBid",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_expiryDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_imageUrl",
+        "type": "string"
+      }
+    ],
+    "name": "postItem",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "name": "checkUpkeep",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "upkeepNeeded",
+        "type": "bool"
+      },
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLatestETHUSDPrice",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "price",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "itemCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "items",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "itemId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address payable",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "highestBidder",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "highestBidPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "expiryDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isSold",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "imageUrl",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
